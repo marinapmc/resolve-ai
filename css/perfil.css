@@ -74,6 +74,10 @@
   align-items: start;
 }
 
+.profile-main {
+  width: 100%;
+}
+
 .profile-section {
   padding: 24px 28px;
   margin-bottom: 20px;
