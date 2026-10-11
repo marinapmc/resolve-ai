@@ -1,12 +1,10 @@
-# ResolveAí — Entrega AA1
-
 Projeto da disciplina **Desenvolvimento de Software para Web 2** (DC — UFSCar, 02/2026).
 
-**Equipe:** Marina Pena · Vinícius Cotrim
+**Equipe:** Marina Pena (RA 829844) e Vinícius Cotrim (RA 828637).
 
 ## Sobre
 
-ResolveAí é um marketplace de serviços sob demanda que conecta clientes a profissionais autônomos (encanadores, eletricistas, diaristas, etc). Esta entrega corresponde à **AA1**: layout e telas em HTML + CSS, responsivos, sem lógica de aplicação (requisitos R1, R2 e R3).
+ResolveAí é um marketplace de serviços sob demanda que conecta clientes a profissionais autônomos (encanadores, eletricistas, diaristas, etc). Esta entrega corresponde à **AA1**: layout e telas em HTML + CSS, responsivos, sem lógica de aplicação.
 
 ## Como visualizar
 
@@ -62,7 +60,3 @@ Todas as telas foram testadas em três larguras (375px, 768px, 1440px) sem overf
 - Menu de navegação vira hambúrguer no mobile.
 - Sidebar de filtros do catálogo vira um painel deslizante (drawer) no mobile.
 - Grids de categorias, resultados e estatísticas se reorganizam por breakpoint.
-
-## Próxima fase (AA2)
-
-Nesta fase as telas são estáticas (mock-up de dados). Na AA2 será implementada a lógica em React, com acesso à rede (R5) e uso de uma API adicional — geolocalização, por exemplo, faz sentido dado o conceito de busca por profissionais próximos (R6).
