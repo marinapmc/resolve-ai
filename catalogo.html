@@ -19,10 +19,11 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/catalogo.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind.config.js"></script>
   </head>
   <body>
-    <svg
+<svg
       style="position: absolute; width: 0; height: 0; overflow: hidden"
       aria-hidden="true"
       focusable="false"
@@ -178,552 +179,290 @@
         />
       </symbol>
     </svg>
-    <a href="#main" class="skip-link">Pular para o conteúdo</a>
+<a href="#main" class="absolute left-3 -top-[60px] bg-primary text-white px-4 py-2.5 rounded-sm z-[999] transition-[top] duration-200 focus:top-3">Pular para o conteúdo</a>
 
-    <header class="navbar">
-      <div class="container">
-        <a href="index.html" class="brand">
-          <svg class="icon brand-mark" aria-hidden="true">
-            <use href="#icon-hammer-wrench"></use>
-          </svg>
-          Resolve<span>Aí</span>
-        </a>
+<header class="sticky top-0 z-[100] bg-surface border-b border-line">
+  <div class="container flex items-center justify-between h-header gap-5">
+    <a href="index.html" class="flex items-center gap-2.5 font-heading font-bold text-[1.25rem] text-ink">
+      <svg class="inline-block shrink-0 fill-current align-middle box-content inline-flex items-center justify-center size-5 p-[9px] rounded-md bg-brand text-white" aria-hidden="true"><use href="#icon-hammer-wrench"></use></svg>
+      Resolve<span class="text-accent">Aí</span>
+    </a>
 
-        <nav class="nav-links" id="navLinks">
-          <a href="index.html">Início</a>
-          <a href="catalogo.html" class="active">Explorar serviços</a>
-          <a href="pedidos.html">Meus pedidos</a>
-          <a href="prestador-painel.html">Sou prestador</a>
-          <div class="nav-links-auth">
-            <a href="pedidos.html" class="btn btn-ghost btn-sm">Entrar</a>
-            <a href="catalogo.html" class="btn btn-primary btn-sm"
-              >Cadastrar-se</a
-            >
+    <nav class="fixed top-header inset-x-0 flex flex-col items-stretch gap-0 bg-surface px-5 pt-2 pb-4 border-b border-line -translate-y-2 opacity-0 pointer-events-none transition-[transform,opacity] duration-200 [&.open]:translate-y-0 [&.open]:opacity-100 [&.open]:pointer-events-auto lg:static lg:flex-row lg:items-center lg:gap-7 lg:bg-transparent lg:p-0 lg:border-0 lg:translate-y-0 lg:opacity-100 lg:pointer-events-auto lg:transition-none" id="navLinks">
+      <a href="index.html" class="font-medium text-ink-secondary px-1 py-3 border-b border-line hover:text-primary hover:border-primary lg:px-0.5 lg:py-2 lg:border-b-2 lg:border-transparent">Início</a>
+      <a href="catalogo.html" class="font-medium text-primary px-1 py-3 border-b border-primary lg:px-0.5 lg:py-2 lg:border-b-2">Explorar serviços</a>
+      <a href="pedidos.html" class="font-medium text-ink-secondary px-1 py-3 border-b border-line hover:text-primary hover:border-primary lg:px-0.5 lg:py-2 lg:border-b-2 lg:border-transparent">Meus pedidos</a>
+      <a href="prestador-painel.html" class="font-medium text-ink-secondary px-1 py-3 border-b border-line hover:text-primary hover:border-primary lg:px-0.5 lg:py-2 lg:border-b-2 lg:border-transparent">Sou prestador</a>
+      <div class="flex sm:hidden gap-2.5 pt-3 mt-2 border-t border-line">
+        <a href="pedidos.html" class="inline-flex items-center justify-center gap-2 font-heading font-semibold rounded-full whitespace-nowrap transition active:scale-[0.98] px-4 py-2 text-[0.85rem] bg-transparent text-ink-secondary hover:bg-line hover:text-ink flex-1">Entrar</a>
+        <a href="catalogo.html" class="inline-flex items-center justify-center gap-2 font-heading font-semibold rounded-full whitespace-nowrap transition active:scale-[0.98] px-4 py-2 text-[0.85rem] bg-primary text-white shadow-sm hover:bg-primary-dark hover:shadow-md flex-1">Cadastrar-se</a>
+      </div>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a href="pedidos.html" class="hidden sm:inline-flex items-center justify-center gap-2 font-heading font-semibold rounded-full whitespace-nowrap transition active:scale-[0.98] px-4 py-2 text-[0.85rem] bg-transparent text-ink-secondary hover:bg-line hover:text-ink">Entrar</a>
+      <a href="catalogo.html" class="hidden sm:inline-flex items-center justify-center gap-2 font-heading font-semibold rounded-full whitespace-nowrap transition active:scale-[0.98] px-4 py-2 text-[0.85rem] bg-primary text-white shadow-sm hover:bg-primary-dark hover:shadow-md">Cadastrar-se</a>
+      <button class="inline-flex lg:hidden size-11 items-center justify-center rounded-sm hover:bg-page" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+        <svg class="inline-block shrink-0 fill-current size-5 align-middle" aria-hidden="true"><use href="#icon-menu"></use></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="container pt-8 pb-16">
+    <nav class="flex items-center gap-1.5 text-[0.88rem] text-ink-muted mb-5 flex-wrap" aria-label="breadcrumb">
+      <a href="index.html" class="hover:text-primary">Início</a>
+      <svg class="inline-block shrink-0 fill-current align-middle size-4" aria-hidden="true"><use href="#icon-chevron-right"></use></svg>
+      <span>Resultados da busca</span>
+    </nav>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 min-[861px]:grid-cols-[1.4fr_1fr_auto_auto] gap-2.5 bg-surface border border-line rounded-md shadow-sm p-3.5 mb-7">
+      <div class="relative">
+  <svg class="inline-block shrink-0 fill-current size-5 align-middle absolute left-3.5 top-1/2 -translate-y-1/2 text-ink-muted" aria-hidden="true"><use href="#icon-magnify"></use></svg>
+  <input class="w-full pl-11 pr-3.5 py-3 border-[1.5px] rounded-sm text-[0.95rem] transition focus:outline-none focus:border-primary focus:shadow-[0_0_0_3px_var(--color-primary-light)] border-line bg-surface" type="text" value="Eletricista">
+</div>
+      <div class="relative">
+  <svg class="inline-block shrink-0 fill-current size-5 align-middle absolute left-3.5 top-1/2 -translate-y-1/2 text-ink-muted" aria-hidden="true"><use href="#icon-map-marker"></use></svg>
+  <input class="w-full pl-11 pr-3.5 py-3 border-[1.5px] rounded-sm text-[0.95rem] transition focus:outline-none focus:border-primary focus:shadow-[0_0_0_3px_var(--color-primary-light)] border-line bg-surface" type="text" value="São Carlos, SP">
+</div>
+      <button class="inline-flex items-center justify-center gap-2 font-heading font-semibold rounded-full whitespace-nowrap transition active:scale-[0.98] px-[22px] py-3 text-[0.95rem] bg-accent text-white shadow-sm hover:bg-accent-dark hover:shadow-md">Buscar</button>
+      <button class="inline-flex xl:hidden items-center justify-center gap-2 font-heading font-semibold rounded-full whitespace-nowrap transition active:scale-[0.98] px-[22px] py-3 text-[0.95rem] bg-transparent text-primary border-[1.5px] border-primary hover:bg-primary-light" id="filterToggle">
+        <svg class="inline-block shrink-0 fill-current size-5 align-middle" aria-hidden="true"><use href="#icon-tune"></use></svg>
+        Filtros
+      </button>
+    </div>
+
+    <div class="flex flex-col items-start md:flex-row md:items-center justify-between flex-wrap gap-3 mb-5">
+      <h1>Eletricistas em São Carlos, SP</h1>
+      <label class="flex items-center gap-2.5 text-[0.9rem] font-semibold text-ink-secondary">
+        Ordenar por
+        <select class="w-auto px-3 py-2 border-[1.5px] rounded-sm text-[0.95rem] transition focus:outline-none focus:border-primary focus:shadow-[0_0_0_3px_var(--color-primary-light)] border-line bg-surface">
+          <option>Mais bem avaliados</option>
+          <option>Menor preço</option>
+          <option>Mais próximos</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="grid grid-cols-1 xl:grid-cols-[280px_1fr] gap-7 items-start">
+      <!-- FILTROS (no mobile vira um painel deslizante) -->
+      <aside class="bg-surface border border-line rounded-md p-5 sticky top-below-header max-xl:fixed max-xl:inset-y-0 max-xl:left-0 max-xl:w-[min(320px,88vw)] max-xl:rounded-none max-xl:z-[200] max-xl:overflow-y-auto max-xl:-translate-x-[105%] max-xl:transition-transform max-xl:duration-[250ms] max-xl:[&.open]:translate-x-0 max-xl:[&.open]:shadow-lg" id="filterSidebar">
+        <div class="hidden max-xl:flex items-center justify-between mb-3">
+          <h3>Filtros</h3>
+          <button class="inline-block size-11 rounded-full bg-surface border border-line text-ink-secondary hover:bg-line" id="filterClose" aria-label="Fechar filtros"><svg class="inline-block shrink-0 fill-current size-5 align-middle" aria-hidden="true"><use href="#icon-close"></use></svg></button>
+        </div>
+
+          <div class="pb-[18px] mb-[18px] border-b border-line">
+            <h4 class="mb-3">Categoria</h4>
+            <label class="flex items-center gap-2.5 mb-2.5 last:mb-0 text-[0.9rem] text-ink-secondary"><input type="checkbox" class="size-[18px] accent-primary" checked> Eletricista</label>
+            <label class="flex items-center gap-2.5 mb-2.5 last:mb-0 text-[0.9rem] text-ink-secondary"><input type="checkbox" class="size-[18px] accent-primary"> Encanador</label>
+            <label class="flex items-center gap-2.5 mb-2.5 last:mb-0 text-[0.9rem] text-ink-secondary"><input type="checkbox" class="size-[18px] accent-primary"> Diarista</label>
+            <label class="flex items-center gap-2.5 mb-2.5 last:mb-0 text-[0.9rem] text-ink-secondary"><input type="checkbox" class="size-[18px] accent-primary"> Pintor</label>
+            <label class="flex items-center gap-2.5 mb-2.5 last:mb-0 text-[0.9rem] text-ink-secondary"><input type="checkbox" class="size-[18px] accent-primary"> Jardinagem</label>
           </div>
-        </nav>
 
-        <div class="nav-actions">
-          <a href="pedidos.html" class="btn btn-ghost btn-sm">Entrar</a>
-          <a href="catalogo.html" class="btn btn-primary btn-sm"
-            >Cadastrar-se</a
-          >
-          <button
-            class="nav-toggle"
-            id="navToggle"
-            aria-label="Abrir menu"
-            aria-expanded="false"
-          >
-            <svg class="icon" aria-hidden="true">
-              <use href="#icon-menu"></use>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </header>
-
-    <main id="main">
-      <div class="container page-pad">
-        <nav class="breadcrumb" aria-label="breadcrumb">
-          <a href="index.html">Início</a>
-          <svg
-            class="icon"
-            aria-hidden="true"
-            style="width: 16px; height: 16px"
-          >
-            <use href="#icon-chevron-right"></use>
-          </svg>
-          <span>Resultados da busca</span>
-        </nav>
-
-        <div class="search-recap">
-          <div class="input-icon-group">
-            <svg class="icon" aria-hidden="true">
-              <use href="#icon-magnify"></use>
-            </svg>
-            <input class="form-control" type="text" value="Eletricista" />
+          <div class="pb-[18px] mb-[18px] border-b border-line">
+            <h4 class="mb-3">Preço base</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block font-semibold text-[0.9rem] mb-2.5 text-ink-secondary">Mínimo</label>
+                <input class="w-full px-3.5 py-3 border-[1.5px] rounded-sm text-[0.95rem] transition focus:outline-none focus:border-primary focus:shadow-[0_0_0_3px_var(--color-primary-light)] border-line bg-surface" type="number" placeholder="R$ 0">
+              </div>
+              <div>
+                <label class="block font-semibold text-[0.9rem] mb-2.5 text-ink-secondary">Máximo</label>
+                <input class="w-full px-3.5 py-3 border-[1.5px] rounded-sm text-[0.95rem] transition focus:outline-none focus:border-primary focus:shadow-[0_0_0_3px_var(--color-primary-light)] border-line bg-surface" type="number" placeholder="R$ 500">
+              </div>
+            </div>
           </div>
-          <div class="input-icon-group">
-            <svg class="icon" aria-hidden="true">
-              <use href="#icon-map-marker"></use>
-            </svg>
-            <input class="form-control" type="text" value="São Carlos, SP" />
+
+          <div class="pb-[18px] mb-[18px] border-b border-line">
+            <h4 class="mb-3">Avaliação mínima</h4>
+            <label class="flex items-center gap-2.5 mb-2.5 last:mb-0 text-[0.9rem] text-ink-secondary"><input type="radio" name="rating" class="size-[18px] accent-primary"> <span class="inline-flex items-center gap-[3px] text-warning"><svg class="inline-block shrink-0 fill-current align-middle size-[18px]" aria-hidden="true"><use href="#icon-star"></use></svg></span> 4.5 ou mais</label>
+            <label class="flex items-center gap-2.5 mb-2.5 last:mb-0 text-[0.9rem] text-ink-secondary"><input type="radio" name="rating" class="size-[18px] accent-primary" checked> <span class="inline-flex items-center gap-[3px] text-warning"><svg class="inline-block shrink-0 fill-current align-middle size-[18px]" aria-hidden="true"><use href="#icon-star"></use></svg></span> 4.0 ou mais</label>
+            <label class="flex items-center gap-2.5 mb-2.5 last:mb-0 text-[0.9rem] text-ink-secondary"><input type="radio" name="rating" class="size-[18px] accent-primary"> <span class="inline-flex items-center gap-[3px] text-warning"><svg class="inline-block shrink-0 fill-current align-middle size-[18px]" aria-hidden="true"><use href="#icon-star"></use></svg></span> 3.0 ou mais</label>
           </div>
-          <button class="btn btn-accent">Buscar</button>
-          <button class="btn btn-outline filter-toggle-btn" id="filterToggle">
-            <svg class="icon" aria-hidden="true">
-              <use href="#icon-tune"></use>
-            </svg>
-            Filtros
-          </button>
-        </div>
 
-        <div class="results-header">
-          <h1>Eletricistas em São Carlos, SP</h1>
-          <label class="sort-label">
-            Ordenar por
-            <select class="form-control sort-select">
-              <option>Mais bem avaliados</option>
-              <option>Menor preço</option>
-              <option>Mais próximos</option>
-            </select>
-          </label>
-        </div>
+          <div class="pb-[18px] mb-[18px] border-b border-line">
+            <h4 class="mb-3">Distância</h4>
+            <label class="flex items-center gap-2.5 mb-2.5 last:mb-0 text-[0.9rem] text-ink-secondary"><input type="radio" name="distancia" class="size-[18px] accent-primary"> Até 2 km</label>
+            <label class="flex items-center gap-2.5 mb-2.5 last:mb-0 text-[0.9rem] text-ink-secondary"><input type="radio" name="distancia" class="size-[18px] accent-primary" checked> Até 5 km</label>
+            <label class="flex items-center gap-2.5 mb-2.5 last:mb-0 text-[0.9rem] text-ink-secondary"><input type="radio" name="distancia" class="size-[18px] accent-primary"> Até 15 km</label>
+            <label class="flex items-center gap-2.5 mb-2.5 last:mb-0 text-[0.9rem] text-ink-secondary"><input type="radio" name="distancia" class="size-[18px] accent-primary"> Qualquer distância</label>
+          </div>
 
-        <div class="catalog-layout">
-          <!-- FILTROS -->
-          <aside class="filter-sidebar" id="filterSidebar">
-            <div class="filter-sidebar-header">
-              <h3>Filtros</h3>
-              <button
-                class="btn-icon"
-                id="filterClose"
-                aria-label="Fechar filtros"
-              >
-                <svg class="icon" aria-hidden="true">
-                  <use href="#icon-close"></use>
-                </svg>
-              </button>
-            </div>
+          <div class="pb-[18px] mb-[18px]">
+            <h4 class="mb-3">Tipo de atendimento</h4>
+            <label class="flex items-center gap-2.5 mb-2.5 last:mb-0 text-[0.9rem] text-ink-secondary"><input type="checkbox" class="size-[18px] accent-primary" checked> Atendimento a domicílio</label>
+            <label class="flex items-center gap-2.5 mb-2.5 last:mb-0 text-[0.9rem] text-ink-secondary"><input type="checkbox" class="size-[18px] accent-primary"> Retirada / local do prestador</label>
+            <label class="flex items-center gap-2.5 mb-2.5 last:mb-0 text-[0.9rem] text-ink-secondary"><input type="checkbox" class="size-[18px] accent-primary"> Atendimento remoto</label>
+          </div>
 
-            <div class="filter-group">
-              <h4>Categoria</h4>
-              <label class="checkbox-row"
-                ><input type="checkbox" checked /> Eletricista</label
-              >
-              <label class="checkbox-row"
-                ><input type="checkbox" /> Encanador</label
-              >
-              <label class="checkbox-row"
-                ><input type="checkbox" /> Diarista</label
-              >
-              <label class="checkbox-row"
-                ><input type="checkbox" /> Pintor</label
-              >
-              <label class="checkbox-row"
-                ><input type="checkbox" /> Jardinagem</label
-              >
-            </div>
+        <button class="inline-flex items-center justify-center gap-2 font-heading font-semibold rounded-full whitespace-nowrap transition active:scale-[0.98] px-[22px] py-3 text-[0.95rem] bg-primary text-white shadow-sm hover:bg-primary-dark hover:shadow-md w-full">Aplicar filtros</button>
+        <button class="inline-flex items-center justify-center gap-2 font-heading font-semibold rounded-full whitespace-nowrap transition active:scale-[0.98] px-[22px] py-3 text-[0.95rem] bg-transparent text-ink-secondary hover:bg-line hover:text-ink w-full">Limpar filtros</button>
+      </aside>
+      <div class="hidden max-xl:[&.open]:block fixed inset-0 bg-overlay z-[190]" id="filterOverlay"></div>
 
-            <div class="filter-group">
-              <h4>Preço base</h4>
-              <div class="form-row">
-                <div class="form-group" style="margin-bottom: 0">
-                  <label class="text-small">Mínimo</label>
-                  <input
-                    class="form-control"
-                    type="number"
-                    placeholder="R$ 0"
-                  />
+      <!-- RESULTADOS -->
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-5" aria-label="Lista de profissionais">
+          <article class="bg-surface border border-line rounded-md shadow-sm overflow-hidden flex flex-col transition hover:shadow-md hover:-translate-y-0.5">
+            <div class="h-[120px] bg-brand relative after:content-[''] after:absolute after:inset-0 after:bg-shine"></div>
+            <div class="px-[18px] pt-4 pb-[18px] flex flex-col gap-1.5 flex-1">
+              <div class="flex items-center justify-between gap-2">
+                <h3 class="text-[1.05rem]">Rafael Mendes</h3>
+                <span class="inline-flex items-center gap-1.5 font-semibold text-[0.9rem]"><svg class="inline-block shrink-0 fill-current align-middle size-[18px] text-warning" aria-hidden="true"><use href="#icon-star"></use></svg> 4.9 <span class="text-ink-muted">(212)</span></span>
+              </div>
+              <p class="text-ink-muted flex items-center gap-1 text-[0.85rem]"><svg class="inline-block shrink-0 fill-current align-middle size-4" aria-hidden="true"><use href="#icon-map-marker"></use></svg> 1,8 km · Jardim Paulistano</p>
+              <p class="text-[0.88rem] mt-0.5 flex-1">Eletricista residencial e predial. Especialista em quadros de distribuição e instalações novas.</p>
+              <div class="flex items-center justify-between mt-3 pt-3 border-t border-line">
+                <div>
+                  <span class="text-ink-muted text-[0.85rem]">a partir de</span>
+                  <strong class="block font-heading text-[1.15rem] text-ink">R$ 90</strong>
                 </div>
-                <div class="form-group" style="margin-bottom: 0">
-                  <label class="text-small">Máximo</label>
-                  <input
-                    class="form-control"
-                    type="number"
-                    placeholder="R$ 500"
-                  />
-                </div>
+                <a href="perfil.html" class="inline-flex items-center justify-center gap-2 font-heading font-semibold rounded-full whitespace-nowrap transition active:scale-[0.98] px-4 py-2 text-[0.85rem] bg-primary text-white shadow-sm hover:bg-primary-dark hover:shadow-md">Ver detalhes</a>
               </div>
             </div>
+          </article>
 
-            <div class="filter-group">
-              <h4>Avaliação mínima</h4>
-              <label class="radio-row"
-                ><input type="radio" name="rating" />
-                <span class="stars"
-                  ><svg class="icon" aria-hidden="true">
-                    <use href="#icon-star"></use></svg
-                ></span>
-                4.5 ou mais</label
-              >
-              <label class="radio-row"
-                ><input type="radio" name="rating" checked />
-                <span class="stars"
-                  ><svg class="icon" aria-hidden="true">
-                    <use href="#icon-star"></use></svg
-                ></span>
-                4.0 ou mais</label
-              >
-              <label class="radio-row"
-                ><input type="radio" name="rating" />
-                <span class="stars"
-                  ><svg class="icon" aria-hidden="true">
-                    <use href="#icon-star"></use></svg
-                ></span>
-                3.0 ou mais</label
-              >
+          <article class="bg-surface border border-line rounded-md shadow-sm overflow-hidden flex flex-col transition hover:shadow-md hover:-translate-y-0.5">
+            <div class="h-[120px] bg-brand relative after:content-[''] after:absolute after:inset-0 after:bg-shine"></div>
+            <div class="px-[18px] pt-4 pb-[18px] flex flex-col gap-1.5 flex-1">
+              <div class="flex items-center justify-between gap-2">
+                <h3 class="text-[1.05rem]">Fernanda Duarte</h3>
+                <span class="inline-flex items-center gap-1.5 font-semibold text-[0.9rem]"><svg class="inline-block shrink-0 fill-current align-middle size-[18px] text-warning" aria-hidden="true"><use href="#icon-star"></use></svg> 4.8 <span class="text-ink-muted">(150)</span></span>
+              </div>
+              <p class="text-ink-muted flex items-center gap-1 text-[0.85rem]"><svg class="inline-block shrink-0 fill-current align-middle size-4" aria-hidden="true"><use href="#icon-map-marker"></use></svg> 2,4 km · Vila Nery</p>
+              <p class="text-[0.88rem] mt-0.5 flex-1">Atendimento residencial rápido, orçamento sem compromisso e garantia de 90 dias no serviço.</p>
+              <div class="flex items-center justify-between mt-3 pt-3 border-t border-line">
+                <div>
+                  <span class="text-ink-muted text-[0.85rem]">a partir de</span>
+                  <strong class="block font-heading text-[1.15rem] text-ink">R$ 80</strong>
+                </div>
+                <a href="perfil.html" class="inline-flex items-center justify-center gap-2 font-heading font-semibold rounded-full whitespace-nowrap transition active:scale-[0.98] px-4 py-2 text-[0.85rem] bg-primary text-white shadow-sm hover:bg-primary-dark hover:shadow-md">Ver detalhes</a>
+              </div>
             </div>
+          </article>
 
-            <div class="filter-group">
-              <h4>Distância</h4>
-              <label class="radio-row"
-                ><input type="radio" name="distancia" /> Até 2 km</label
-              >
-              <label class="radio-row"
-                ><input type="radio" name="distancia" checked /> Até 5 km</label
-              >
-              <label class="radio-row"
-                ><input type="radio" name="distancia" /> Até 15 km</label
-              >
-              <label class="radio-row"
-                ><input type="radio" name="distancia" /> Qualquer
-                distância</label
-              >
+          <article class="bg-surface border border-line rounded-md shadow-sm overflow-hidden flex flex-col transition hover:shadow-md hover:-translate-y-0.5">
+            <div class="h-[120px] bg-brand relative after:content-[''] after:absolute after:inset-0 after:bg-shine"></div>
+            <div class="px-[18px] pt-4 pb-[18px] flex flex-col gap-1.5 flex-1">
+              <div class="flex items-center justify-between gap-2">
+                <h3 class="text-[1.05rem]">Diego Ramos</h3>
+                <span class="inline-flex items-center gap-1.5 font-semibold text-[0.9rem]"><svg class="inline-block shrink-0 fill-current align-middle size-[18px] text-warning" aria-hidden="true"><use href="#icon-star"></use></svg> 4.6 <span class="text-ink-muted">(89)</span></span>
+              </div>
+              <p class="text-ink-muted flex items-center gap-1 text-[0.85rem]"><svg class="inline-block shrink-0 fill-current align-middle size-4" aria-hidden="true"><use href="#icon-map-marker"></use></svg> 3,1 km · Centro</p>
+              <p class="text-[0.88rem] mt-0.5 flex-1">Instalações elétricas, troca de disjuntores e manutenção preventiva. Atendimento em até 24h.</p>
+              <div class="flex items-center justify-between mt-3 pt-3 border-t border-line">
+                <div>
+                  <span class="text-ink-muted text-[0.85rem]">a partir de</span>
+                  <strong class="block font-heading text-[1.15rem] text-ink">R$ 75</strong>
+                </div>
+                <a href="perfil.html" class="inline-flex items-center justify-center gap-2 font-heading font-semibold rounded-full whitespace-nowrap transition active:scale-[0.98] px-4 py-2 text-[0.85rem] bg-primary text-white shadow-sm hover:bg-primary-dark hover:shadow-md">Ver detalhes</a>
+              </div>
             </div>
+          </article>
 
-            <div class="filter-group">
-              <h4>Tipo de atendimento</h4>
-              <label class="checkbox-row"
-                ><input type="checkbox" checked /> Atendimento a
-                domicílio</label
-              >
-              <label class="checkbox-row"
-                ><input type="checkbox" /> Retirada / local do prestador</label
-              >
-              <label class="checkbox-row"
-                ><input type="checkbox" /> Atendimento remoto</label
-              >
+          <article class="bg-surface border border-line rounded-md shadow-sm overflow-hidden flex flex-col transition hover:shadow-md hover:-translate-y-0.5">
+            <div class="h-[120px] bg-brand relative after:content-[''] after:absolute after:inset-0 after:bg-shine"></div>
+            <div class="px-[18px] pt-4 pb-[18px] flex flex-col gap-1.5 flex-1">
+              <div class="flex items-center justify-between gap-2">
+                <h3 class="text-[1.05rem]">Patrícia Nogueira</h3>
+                <span class="inline-flex items-center gap-1.5 font-semibold text-[0.9rem]"><svg class="inline-block shrink-0 fill-current align-middle size-[18px] text-warning" aria-hidden="true"><use href="#icon-star"></use></svg> 4.9 <span class="text-ink-muted">(301)</span></span>
+              </div>
+              <p class="text-ink-muted flex items-center gap-1 text-[0.85rem]"><svg class="inline-block shrink-0 fill-current align-middle size-4" aria-hidden="true"><use href="#icon-map-marker"></use></svg> 4,0 km · Cidade Aracy</p>
+              <p class="text-[0.88rem] mt-0.5 flex-1">Mais de 10 anos de experiência. Especialista em automação residencial e iluminação.</p>
+              <div class="flex items-center justify-between mt-3 pt-3 border-t border-line">
+                <div>
+                  <span class="text-ink-muted text-[0.85rem]">a partir de</span>
+                  <strong class="block font-heading text-[1.15rem] text-ink">R$ 110</strong>
+                </div>
+                <a href="perfil.html" class="inline-flex items-center justify-center gap-2 font-heading font-semibold rounded-full whitespace-nowrap transition active:scale-[0.98] px-4 py-2 text-[0.85rem] bg-primary text-white shadow-sm hover:bg-primary-dark hover:shadow-md">Ver detalhes</a>
+              </div>
             </div>
+          </article>
 
-            <button class="btn btn-primary btn-block">Aplicar filtros</button>
-            <button class="btn btn-ghost btn-block">Limpar filtros</button>
-          </aside>
-          <div class="filter-overlay" id="filterOverlay"></div>
-
-          <!-- RESULTADOS -->
-          <section class="results-grid" aria-label="Lista de profissionais">
-            <article class="provider-card">
-              <div class="provider-photo avatar-c1"></div>
-              <div class="provider-info">
-                <div class="provider-top">
-                  <h3>Rafael Mendes</h3>
-                  <span class="rating-inline"
-                    ><svg
-                      class="icon"
-                      aria-hidden="true"
-                      style="
-                        color: var(--color-warning);
-                        width: 18px;
-                        height: 18px;
-                      "
-                    >
-                      <use href="#icon-star"></use>
-                    </svg>
-                    4.9 <span class="text-muted">(212)</span></span
-                  >
-                </div>
-                <p class="text-muted provider-meta">
-                  <svg
-                    class="icon"
-                    aria-hidden="true"
-                    style="width: 16px; height: 16px"
-                  >
-                    <use href="#icon-map-marker"></use>
-                  </svg>
-                  1,8 km · Jardim Paulistano
-                </p>
-                <p class="provider-desc">
-                  Eletricista residencial e predial. Especialista em quadros de
-                  distribuição e instalações novas.
-                </p>
-                <div class="provider-bottom">
-                  <div>
-                    <span class="text-muted text-small">a partir de</span>
-                    <strong class="provider-price">R$ 90</strong>
-                  </div>
-                  <a href="perfil.html" class="btn btn-primary btn-sm"
-                    >Ver detalhes</a
-                  >
-                </div>
+          <article class="bg-surface border border-line rounded-md shadow-sm overflow-hidden flex flex-col transition hover:shadow-md hover:-translate-y-0.5">
+            <div class="h-[120px] bg-brand relative after:content-[''] after:absolute after:inset-0 after:bg-shine"></div>
+            <div class="px-[18px] pt-4 pb-[18px] flex flex-col gap-1.5 flex-1">
+              <div class="flex items-center justify-between gap-2">
+                <h3 class="text-[1.05rem]">Bruno Castro</h3>
+                <span class="inline-flex items-center gap-1.5 font-semibold text-[0.9rem]"><svg class="inline-block shrink-0 fill-current align-middle size-[18px] text-warning" aria-hidden="true"><use href="#icon-star"></use></svg> 4.5 <span class="text-ink-muted">(64)</span></span>
               </div>
-            </article>
-
-            <article class="provider-card">
-              <div class="provider-photo avatar-c4"></div>
-              <div class="provider-info">
-                <div class="provider-top">
-                  <h3>Fernanda Duarte</h3>
-                  <span class="rating-inline"
-                    ><svg
-                      class="icon"
-                      aria-hidden="true"
-                      style="
-                        color: var(--color-warning);
-                        width: 18px;
-                        height: 18px;
-                      "
-                    >
-                      <use href="#icon-star"></use>
-                    </svg>
-                    4.8 <span class="text-muted">(150)</span></span
-                  >
+              <p class="text-ink-muted flex items-center gap-1 text-[0.85rem]"><svg class="inline-block shrink-0 fill-current align-middle size-4" aria-hidden="true"><use href="#icon-map-marker"></use></svg> 4,7 km · Vila Prado</p>
+              <p class="text-[0.88rem] mt-0.5 flex-1">Atendimento comercial e residencial. Disponível também aos finais de semana.</p>
+              <div class="flex items-center justify-between mt-3 pt-3 border-t border-line">
+                <div>
+                  <span class="text-ink-muted text-[0.85rem]">a partir de</span>
+                  <strong class="block font-heading text-[1.15rem] text-ink">R$ 85</strong>
                 </div>
-                <p class="text-muted provider-meta">
-                  <svg
-                    class="icon"
-                    aria-hidden="true"
-                    style="width: 16px; height: 16px"
-                  >
-                    <use href="#icon-map-marker"></use>
-                  </svg>
-                  2,4 km · Vila Nery
-                </p>
-                <p class="provider-desc">
-                  Atendimento residencial rápido, orçamento sem compromisso e
-                  garantia de 90 dias no serviço.
-                </p>
-                <div class="provider-bottom">
-                  <div>
-                    <span class="text-muted text-small">a partir de</span>
-                    <strong class="provider-price">R$ 80</strong>
-                  </div>
-                  <a href="perfil.html" class="btn btn-primary btn-sm"
-                    >Ver detalhes</a
-                  >
-                </div>
+                <a href="perfil.html" class="inline-flex items-center justify-center gap-2 font-heading font-semibold rounded-full whitespace-nowrap transition active:scale-[0.98] px-4 py-2 text-[0.85rem] bg-primary text-white shadow-sm hover:bg-primary-dark hover:shadow-md">Ver detalhes</a>
               </div>
-            </article>
+            </div>
+          </article>
 
-            <article class="provider-card">
-              <div class="provider-photo avatar-c2"></div>
-              <div class="provider-info">
-                <div class="provider-top">
-                  <h3>Diego Ramos</h3>
-                  <span class="rating-inline"
-                    ><svg
-                      class="icon"
-                      aria-hidden="true"
-                      style="
-                        color: var(--color-warning);
-                        width: 18px;
-                        height: 18px;
-                      "
-                    >
-                      <use href="#icon-star"></use>
-                    </svg>
-                    4.6 <span class="text-muted">(89)</span></span
-                  >
-                </div>
-                <p class="text-muted provider-meta">
-                  <svg
-                    class="icon"
-                    aria-hidden="true"
-                    style="width: 16px; height: 16px"
-                  >
-                    <use href="#icon-map-marker"></use>
-                  </svg>
-                  3,1 km · Centro
-                </p>
-                <p class="provider-desc">
-                  Instalações elétricas, troca de disjuntores e manutenção
-                  preventiva. Atendimento em até 24h.
-                </p>
-                <div class="provider-bottom">
-                  <div>
-                    <span class="text-muted text-small">a partir de</span>
-                    <strong class="provider-price">R$ 75</strong>
-                  </div>
-                  <a href="perfil.html" class="btn btn-primary btn-sm"
-                    >Ver detalhes</a
-                  >
-                </div>
+          <article class="bg-surface border border-line rounded-md shadow-sm overflow-hidden flex flex-col transition hover:shadow-md hover:-translate-y-0.5">
+            <div class="h-[120px] bg-brand relative after:content-[''] after:absolute after:inset-0 after:bg-shine"></div>
+            <div class="px-[18px] pt-4 pb-[18px] flex flex-col gap-1.5 flex-1">
+              <div class="flex items-center justify-between gap-2">
+                <h3 class="text-[1.05rem]">Otávio Lima</h3>
+                <span class="inline-flex items-center gap-1.5 font-semibold text-[0.9rem]"><svg class="inline-block shrink-0 fill-current align-middle size-[18px] text-warning" aria-hidden="true"><use href="#icon-star"></use></svg> 4.4 <span class="text-ink-muted">(41)</span></span>
               </div>
-            </article>
-
-            <article class="provider-card">
-              <div class="provider-photo avatar-c5"></div>
-              <div class="provider-info">
-                <div class="provider-top">
-                  <h3>Patrícia Nogueira</h3>
-                  <span class="rating-inline"
-                    ><svg
-                      class="icon"
-                      aria-hidden="true"
-                      style="
-                        color: var(--color-warning);
-                        width: 18px;
-                        height: 18px;
-                      "
-                    >
-                      <use href="#icon-star"></use>
-                    </svg>
-                    4.9 <span class="text-muted">(301)</span></span
-                  >
+              <p class="text-ink-muted flex items-center gap-1 text-[0.85rem]"><svg class="inline-block shrink-0 fill-current align-middle size-4" aria-hidden="true"><use href="#icon-map-marker"></use></svg> 5,2 km · Santa Felícia</p>
+              <p class="text-[0.88rem] mt-0.5 flex-1">Manutenção elétrica em geral, com peças e materiais inclusos no orçamento.</p>
+              <div class="flex items-center justify-between mt-3 pt-3 border-t border-line">
+                <div>
+                  <span class="text-ink-muted text-[0.85rem]">a partir de</span>
+                  <strong class="block font-heading text-[1.15rem] text-ink">R$ 70</strong>
                 </div>
-                <p class="text-muted provider-meta">
-                  <svg
-                    class="icon"
-                    aria-hidden="true"
-                    style="width: 16px; height: 16px"
-                  >
-                    <use href="#icon-map-marker"></use>
-                  </svg>
-                  4,0 km · Cidade Aracy
-                </p>
-                <p class="provider-desc">
-                  Mais de 10 anos de experiência. Especialista em automação
-                  residencial e iluminação.
-                </p>
-                <div class="provider-bottom">
-                  <div>
-                    <span class="text-muted text-small">a partir de</span>
-                    <strong class="provider-price">R$ 110</strong>
-                  </div>
-                  <a href="perfil.html" class="btn btn-primary btn-sm"
-                    >Ver detalhes</a
-                  >
-                </div>
+                <a href="perfil.html" class="inline-flex items-center justify-center gap-2 font-heading font-semibold rounded-full whitespace-nowrap transition active:scale-[0.98] px-4 py-2 text-[0.85rem] bg-primary text-white shadow-sm hover:bg-primary-dark hover:shadow-md">Ver detalhes</a>
               </div>
-            </article>
+            </div>
+          </article>
+      </section>
+    </div>
+  </div>
+</main>
 
-            <article class="provider-card">
-              <div class="provider-photo avatar-c3"></div>
-              <div class="provider-info">
-                <div class="provider-top">
-                  <h3>Bruno Castro</h3>
-                  <span class="rating-inline"
-                    ><svg
-                      class="icon"
-                      aria-hidden="true"
-                      style="
-                        color: var(--color-warning);
-                        width: 18px;
-                        height: 18px;
-                      "
-                    >
-                      <use href="#icon-star"></use>
-                    </svg>
-                    4.5 <span class="text-muted">(64)</span></span
-                  >
-                </div>
-                <p class="text-muted provider-meta">
-                  <svg
-                    class="icon"
-                    aria-hidden="true"
-                    style="width: 16px; height: 16px"
-                  >
-                    <use href="#icon-map-marker"></use>
-                  </svg>
-                  4,7 km · Vila Prado
-                </p>
-                <p class="provider-desc">
-                  Atendimento comercial e residencial. Disponível também aos
-                  finais de semana.
-                </p>
-                <div class="provider-bottom">
-                  <div>
-                    <span class="text-muted text-small">a partir de</span>
-                    <strong class="provider-price">R$ 85</strong>
-                  </div>
-                  <a href="perfil.html" class="btn btn-primary btn-sm"
-                    >Ver detalhes</a
-                  >
-                </div>
-              </div>
-            </article>
+<footer class="bg-footer text-footer-text pt-12 pb-6 mt-16">
+  <div class="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-8">
+    <div>
+      <a href="index.html" class="flex items-center gap-2.5 font-heading font-bold text-[1.25rem] text-white mb-3">
+        <svg class="inline-block shrink-0 fill-current align-middle box-content inline-flex items-center justify-center size-5 p-[9px] rounded-md bg-brand text-white" aria-hidden="true"><use href="#icon-hammer-wrench"></use></svg>
+        Resolve<span class="text-accent">Aí</span>
+      </a>
+      <p class="text-footer-muted">Conectando clientes a profissionais autônomos de confiança, perto de você.</p>
+    </div>
+    <div>
+      <h4 class="text-white mb-3.5 text-[0.95rem]">Para clientes</h4>
+      <ul>
+        <li class="mb-2.5"><a href="catalogo.html" class="text-footer-text hover:text-white">Buscar profissionais</a></li>
+        <li class="mb-2.5"><a href="pedidos.html" class="text-footer-text hover:text-white">Meus pedidos</a></li>
+        <li class="mb-2.5"><a href="#" class="text-footer-text hover:text-white">Como funciona</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white mb-3.5 text-[0.95rem]">Para prestadores</h4>
+      <ul>
+        <li class="mb-2.5"><a href="prestador-painel.html" class="text-footer-text hover:text-white">Painel do prestador</a></li>
+        <li class="mb-2.5"><a href="#" class="text-footer-text hover:text-white">Cadastrar serviços</a></li>
+        <li class="mb-2.5"><a href="#" class="text-footer-text hover:text-white">Central de ajuda</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white mb-3.5 text-[0.95rem]">ResolveAí</h4>
+      <ul>
+        <li class="mb-2.5"><a href="#" class="text-footer-text hover:text-white">Sobre nós</a></li>
+        <li class="mb-2.5"><a href="#" class="text-footer-text hover:text-white">Termos de uso</a></li>
+        <li class="mb-2.5"><a href="#" class="text-footer-text hover:text-white">Privacidade</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="max-w-[1180px] mx-auto mt-8 px-5 pt-5 border-t border-footer-line text-footer-faint text-[0.85rem] flex justify-between flex-wrap gap-2">
+    <span>© 2026 ResolveAí — projeto acadêmico (Desenvolvimento de Software para Web 2, UFSCar)</span>
+    <span>Marina Pena · Vinícius Cotrim</span>
+  </div>
+</footer>
 
-            <article class="provider-card">
-              <div class="provider-photo avatar-c1"></div>
-              <div class="provider-info">
-                <div class="provider-top">
-                  <h3>Otávio Lima</h3>
-                  <span class="rating-inline"
-                    ><svg
-                      class="icon"
-                      aria-hidden="true"
-                      style="
-                        color: var(--color-warning);
-                        width: 18px;
-                        height: 18px;
-                      "
-                    >
-                      <use href="#icon-star"></use>
-                    </svg>
-                    4.4 <span class="text-muted">(41)</span></span
-                  >
-                </div>
-                <p class="text-muted provider-meta">
-                  <svg
-                    class="icon"
-                    aria-hidden="true"
-                    style="width: 16px; height: 16px"
-                  >
-                    <use href="#icon-map-marker"></use>
-                  </svg>
-                  5,2 km · Santa Felícia
-                </p>
-                <p class="provider-desc">
-                  Manutenção elétrica em geral, com peças e materiais inclusos
-                  no orçamento.
-                </p>
-                <div class="provider-bottom">
-                  <div>
-                    <span class="text-muted text-small">a partir de</span>
-                    <strong class="provider-price">R$ 70</strong>
-                  </div>
-                  <a href="perfil.html" class="btn btn-primary btn-sm"
-                    >Ver detalhes</a
-                  >
-                </div>
-              </div>
-            </article>
-          </section>
-        </div>
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="container">
-        <div>
-          <a
-            href="index.html"
-            class="brand"
-            style="color: #fff; margin-bottom: 12px"
-          >
-            <svg class="icon brand-mark" aria-hidden="true">
-              <use href="#icon-hammer-wrench"></use>
-            </svg>
-            Resolve<span>Aí</span>
-          </a>
-          <p>
-            Conectando clientes a profissionais autônomos de confiança, perto de
-            você.
-          </p>
-        </div>
-        <div>
-          <h4>Para clientes</h4>
-          <ul>
-            <li><a href="catalogo.html">Buscar profissionais</a></li>
-            <li><a href="pedidos.html">Meus pedidos</a></li>
-            <li><a href="#">Como funciona</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Para prestadores</h4>
-          <ul>
-            <li><a href="prestador-painel.html">Painel do prestador</a></li>
-            <li><a href="#">Cadastrar serviços</a></li>
-            <li><a href="#">Central de ajuda</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>ResolveAí</h4>
-          <ul>
-            <li><a href="#">Sobre nós</a></li>
-            <li><a href="#">Termos de uso</a></li>
-            <li><a href="#">Privacidade</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span
-          >© 2026 ResolveAí — projeto acadêmico (Desenvolvimento de Software
-          para Web 2, UFSCar)</span
-        >
-        <span>Marina Pena · Vinícius Cotrim</span>
-      </div>
-    </footer>
-
-    <script src="js/main.js"></script>
-  </body>
+<script src="js/main.js"></script>
+</body>
 </html>

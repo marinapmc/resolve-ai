@@ -40,13 +40,13 @@ document.addEventListener("DOMContentLoaded", () => {
     buttons.forEach((btn) => {
       btn.addEventListener("click", () => {
         buttons.forEach((b) => b.classList.remove("active"));
-        panels.forEach((p) => p.classList.add("is-hidden"));
+        panels.forEach((p) => p.classList.add("hidden"));
 
         btn.classList.add("active");
         const target = tabGroup.querySelector(
           `[data-tab-panel="${btn.dataset.tab}"]`,
         );
-        if (target) target.classList.remove("is-hidden");
+        if (target) target.classList.remove("hidden");
       });
     });
   });
@@ -84,8 +84,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (targetId) {
         document
           .querySelectorAll(".payment-panel")
-          .forEach((panel) => panel.classList.add("is-hidden"));
-        document.getElementById(targetId)?.classList.remove("is-hidden");
+          .forEach((panel) => panel.classList.add("hidden"));
+        document.getElementById(targetId)?.classList.remove("hidden");
       }
     });
   });

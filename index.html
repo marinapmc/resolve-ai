@@ -19,11 +19,12 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/home.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind.config.js"></script>
   </head>
 
   <body>
-    <svg
+<svg
       style="position: absolute; width: 0; height: 0; overflow: hidden"
       aria-hidden="true"
       focusable="false"
@@ -179,429 +180,265 @@
         />
       </symbol>
     </svg>
+<a href="#main" class="absolute left-3 -top-[60px] bg-primary text-white px-4 py-2.5 rounded-sm z-[999] transition-[top] duration-200 focus:top-3">Pular para o conteúdo</a>
 
-    <a href="#main" class="skip-link">Pular para o conteúdo</a>
+<header class="sticky top-0 z-[100] bg-surface border-b border-line">
+  <div class="container flex items-center justify-between h-header gap-5">
+    <a href="index.html" class="flex items-center gap-2.5 font-heading font-bold text-[1.25rem] text-ink">
+      <svg class="inline-block shrink-0 fill-current align-middle box-content inline-flex items-center justify-center size-5 p-[9px] rounded-md bg-brand text-white" aria-hidden="true"><use href="#icon-hammer-wrench"></use></svg>
+      Resolve<span class="text-accent">Aí</span>
+    </a>
 
-    <header class="navbar">
-      <div class="container">
-        <a href="index.html" class="brand">
-          <svg class="icon brand-mark" aria-hidden="true">
-            <use href="#icon-hammer-wrench"></use>
-          </svg>
-          Resolve<span>Aí</span>
+    <nav class="fixed top-header inset-x-0 flex flex-col items-stretch gap-0 bg-surface px-5 pt-2 pb-4 border-b border-line -translate-y-2 opacity-0 pointer-events-none transition-[transform,opacity] duration-200 [&.open]:translate-y-0 [&.open]:opacity-100 [&.open]:pointer-events-auto lg:static lg:flex-row lg:items-center lg:gap-7 lg:bg-transparent lg:p-0 lg:border-0 lg:translate-y-0 lg:opacity-100 lg:pointer-events-auto lg:transition-none" id="navLinks">
+      <a href="index.html" class="font-medium text-primary px-1 py-3 border-b border-primary lg:px-0.5 lg:py-2 lg:border-b-2">Início</a>
+      <a href="catalogo.html" class="font-medium text-ink-secondary px-1 py-3 border-b border-line hover:text-primary hover:border-primary lg:px-0.5 lg:py-2 lg:border-b-2 lg:border-transparent">Explorar serviços</a>
+      <a href="pedidos.html" class="font-medium text-ink-secondary px-1 py-3 border-b border-line hover:text-primary hover:border-primary lg:px-0.5 lg:py-2 lg:border-b-2 lg:border-transparent">Meus pedidos</a>
+      <a href="prestador-painel.html" class="font-medium text-ink-secondary px-1 py-3 border-b border-line hover:text-primary hover:border-primary lg:px-0.5 lg:py-2 lg:border-b-2 lg:border-transparent">Sou prestador</a>
+      <div class="flex sm:hidden gap-2.5 pt-3 mt-2 border-t border-line">
+        <a href="pedidos.html" class="inline-flex items-center justify-center gap-2 font-heading font-semibold rounded-full whitespace-nowrap transition active:scale-[0.98] px-4 py-2 text-[0.85rem] bg-transparent text-ink-secondary hover:bg-line hover:text-ink flex-1">Entrar</a>
+        <a href="catalogo.html" class="inline-flex items-center justify-center gap-2 font-heading font-semibold rounded-full whitespace-nowrap transition active:scale-[0.98] px-4 py-2 text-[0.85rem] bg-primary text-white shadow-sm hover:bg-primary-dark hover:shadow-md flex-1">Cadastrar-se</a>
+      </div>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a href="pedidos.html" class="hidden sm:inline-flex items-center justify-center gap-2 font-heading font-semibold rounded-full whitespace-nowrap transition active:scale-[0.98] px-4 py-2 text-[0.85rem] bg-transparent text-ink-secondary hover:bg-line hover:text-ink">Entrar</a>
+      <a href="catalogo.html" class="hidden sm:inline-flex items-center justify-center gap-2 font-heading font-semibold rounded-full whitespace-nowrap transition active:scale-[0.98] px-4 py-2 text-[0.85rem] bg-primary text-white shadow-sm hover:bg-primary-dark hover:shadow-md">Cadastrar-se</a>
+      <button class="inline-flex lg:hidden size-11 items-center justify-center rounded-sm hover:bg-page" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+        <svg class="inline-block shrink-0 fill-current size-5 align-middle" aria-hidden="true"><use href="#icon-menu"></use></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <!-- HERO -->
+  <section class="bg-hero pt-14 pb-10">
+    <div class="container grid grid-cols-1 xl:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
+      <div>
+        <span class="inline-flex items-center gap-2 bg-surface border border-line px-3.5 py-1.5 rounded-full text-[0.82rem] font-semibold text-primary-dark mb-[18px]">
+          <svg class="inline-block shrink-0 fill-current align-middle size-4 text-success" aria-hidden="true"><use href="#icon-check-decagram"></use></svg>
+          Mais de 3.400 profissionais avaliados
+        </span>
+        <h1 class="mb-4">Precisa resolver algo em casa? A gente te conecta com quem sabe fazer.</h1>
+        <p class="text-[1.05rem] mb-7 max-w-[46ch]">Encanadores, eletricistas, diaristas e muito mais — perto de você, com avaliações reais e pagamento seguro pelo app.</p>
+
+        <form class="bg-surface border border-line rounded-lg shadow-md p-3.5 grid grid-cols-1 md:grid-cols-[1.2fr_1fr_auto] gap-2.5" action="catalogo.html" method="get">
+          <div class="relative">
+  <svg class="inline-block shrink-0 fill-current size-5 align-middle absolute left-3.5 top-1/2 -translate-y-1/2 text-ink-muted" aria-hidden="true"><use href="#icon-magnify"></use></svg>
+  <input class="w-full pl-11 pr-3.5 py-3 border-[1.5px] rounded-sm text-[0.95rem] transition focus:outline-none focus:border-primary focus:shadow-[0_0_0_3px_var(--color-primary-light)] border-transparent bg-page focus:bg-surface" type="text" name="q" placeholder="O que você precisa? Ex: eletricista, faxina...">
+</div>
+          <div class="relative">
+  <svg class="inline-block shrink-0 fill-current size-5 align-middle absolute left-3.5 top-1/2 -translate-y-1/2 text-ink-muted" aria-hidden="true"><use href="#icon-map-marker"></use></svg>
+  <input class="w-full pl-11 pr-3.5 py-3 border-[1.5px] rounded-sm text-[0.95rem] transition focus:outline-none focus:border-primary focus:shadow-[0_0_0_3px_var(--color-primary-light)] border-transparent bg-page focus:bg-surface" type="text" name="local" placeholder="Seu bairro ou cidade">
+</div>
+          <button type="submit" class="inline-flex items-center justify-center gap-2 font-heading font-semibold rounded-full whitespace-nowrap transition active:scale-[0.98] px-[22px] py-3 text-[0.95rem] bg-accent text-white shadow-sm hover:bg-accent-dark hover:shadow-md">Buscar profissionais</button>
+        </form>
+
+        <div class="flex flex-wrap gap-5 md:flex-nowrap md:gap-8 mt-8">
+          <div class="flex flex-col"><strong class="font-heading text-[1.4rem] text-ink">4.8</strong><span class="text-[0.82rem] text-ink-muted">avaliação média</span></div>
+          <div class="flex flex-col"><strong class="font-heading text-[1.4rem] text-ink">12 mil+</strong><span class="text-[0.82rem] text-ink-muted">chamados concluídos</span></div>
+          <div class="flex flex-col"><strong class="font-heading text-[1.4rem] text-ink">48</strong><span class="text-[0.82rem] text-ink-muted">cidades atendidas</span></div>
+        </div>
+      </div>
+
+      <div class="relative hidden xl:flex justify-center" aria-hidden="true">
+        <div class="bg-surface border border-line rounded-md shadow-sm absolute top-[6%] -left-[6%] flex items-center gap-3 px-4 py-3.5 max-w-[240px]">
+          <svg class="inline-block shrink-0 fill-current align-middle box-content size-[18px] p-[9px] rounded-full bg-success-light text-success" aria-hidden="true"><use href="#icon-check-circle"></use></svg>
+          <div>
+            <strong class="block text-[0.85rem]">Serviço concluído</strong>
+            <p class="text-[0.85rem]">Instalação elétrica — hoje às 14h</p>
+          </div>
+        </div>
+        <div class="w-full aspect-[4/5] max-w-[380px] rounded-lg bg-hero-photo shadow-lg"></div>
+        <div class="bg-surface border border-line rounded-md shadow-sm absolute bottom-[8%] -right-[8%] flex flex-col items-start gap-1.5 px-4 py-3.5 max-w-[240px]">
+          <span class="inline-flex items-center gap-[3px] text-warning"><svg class="inline-block shrink-0 fill-current align-middle size-[18px]" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="inline-block shrink-0 fill-current align-middle size-[18px]" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="inline-block shrink-0 fill-current align-middle size-[18px]" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="inline-block shrink-0 fill-current align-middle size-[18px]" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="inline-block shrink-0 fill-current align-middle size-[18px]" aria-hidden="true"><use href="#icon-star"></use></svg></span>
+          <p class="text-[0.85rem]">"Rápido, educado e resolveu na hora."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIAS -->
+  <section class="py-14">
+    <div class="container">
+      <div class="flex items-baseline justify-between gap-4 flex-wrap mb-7">
+        <div>
+          <h2>O que você precisa resolver hoje?</h2>
+          <p class="mt-1.5">Categorias mais buscadas na sua região</p>
+        </div>
+        <a href="catalogo.html" class="inline-flex items-center justify-center gap-2 font-heading font-semibold rounded-full whitespace-nowrap transition active:scale-[0.98] px-4 py-2 text-[0.85rem] bg-transparent text-primary border-[1.5px] border-primary hover:bg-primary-light">Ver todas <svg class="inline-block shrink-0 fill-current size-5 align-middle" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4">
+        <a class="flex flex-col items-center gap-2.5 px-3 py-6 bg-surface border border-line rounded-md text-center font-semibold text-[0.9rem] transition hover:-translate-y-1 hover:shadow-md hover:border-primary" href="catalogo.html?categoria=eletricista">
+          <svg class="inline-block shrink-0 fill-current align-middle box-content size-[26px] p-[15px] text-primary bg-primary-light rounded-full" aria-hidden="true"><use href="#icon-lightning-bolt"></use></svg>
+          <span>Eletricista</span>
         </a>
+        <a class="flex flex-col items-center gap-2.5 px-3 py-6 bg-surface border border-line rounded-md text-center font-semibold text-[0.9rem] transition hover:-translate-y-1 hover:shadow-md hover:border-primary" href="catalogo.html?categoria=encanador">
+          <svg class="inline-block shrink-0 fill-current align-middle box-content size-[26px] p-[15px] text-primary bg-primary-light rounded-full" aria-hidden="true"><use href="#icon-pipe-wrench"></use></svg>
+          <span>Encanador</span>
+        </a>
+        <a class="flex flex-col items-center gap-2.5 px-3 py-6 bg-surface border border-line rounded-md text-center font-semibold text-[0.9rem] transition hover:-translate-y-1 hover:shadow-md hover:border-primary" href="catalogo.html?categoria=diarista">
+          <svg class="inline-block shrink-0 fill-current align-middle box-content size-[26px] p-[15px] text-primary bg-primary-light rounded-full" aria-hidden="true"><use href="#icon-broom"></use></svg>
+          <span>Diarista</span>
+        </a>
+        <a class="flex flex-col items-center gap-2.5 px-3 py-6 bg-surface border border-line rounded-md text-center font-semibold text-[0.9rem] transition hover:-translate-y-1 hover:shadow-md hover:border-primary" href="catalogo.html?categoria=pintor">
+          <svg class="inline-block shrink-0 fill-current align-middle box-content size-[26px] p-[15px] text-primary bg-primary-light rounded-full" aria-hidden="true"><use href="#icon-format-paint"></use></svg>
+          <span>Pintor</span>
+        </a>
+        <a class="flex flex-col items-center gap-2.5 px-3 py-6 bg-surface border border-line rounded-md text-center font-semibold text-[0.9rem] transition hover:-translate-y-1 hover:shadow-md hover:border-primary" href="catalogo.html?categoria=jardinagem">
+          <svg class="inline-block shrink-0 fill-current align-middle box-content size-[26px] p-[15px] text-primary bg-primary-light rounded-full" aria-hidden="true"><use href="#icon-flower"></use></svg>
+          <span>Jardinagem</span>
+        </a>
+        <a class="flex flex-col items-center gap-2.5 px-3 py-6 bg-surface border border-line rounded-md text-center font-semibold text-[0.9rem] transition hover:-translate-y-1 hover:shadow-md hover:border-primary" href="catalogo.html?categoria=montador">
+          <svg class="inline-block shrink-0 fill-current align-middle box-content size-[26px] p-[15px] text-primary bg-primary-light rounded-full" aria-hidden="true"><use href="#icon-table-chair"></use></svg>
+          <span>Montador de móveis</span>
+        </a>
+      </div>
+    </div>
+  </section>
 
-        <nav class="nav-links" id="navLinks">
-          <a href="index.html" class="active">Início</a>
-          <a href="catalogo.html">Explorar serviços</a>
-          <a href="pedidos.html">Meus pedidos</a>
-          <a href="prestador-painel.html">Sou prestador</a>
-          <div class="nav-links-auth">
-            <a href="pedidos.html" class="btn btn-ghost btn-sm">Entrar</a>
-            <a href="catalogo.html" class="btn btn-primary btn-sm"
-              >Cadastrar-se</a
-            >
-          </div>
-        </nav>
-
-        <div class="nav-actions">
-          <a href="pedidos.html" class="btn btn-ghost btn-sm">Entrar</a>
-          <a href="catalogo.html" class="btn btn-primary btn-sm"
-            >Cadastrar-se</a
-          >
-          <button
-            class="nav-toggle"
-            id="navToggle"
-            aria-label="Abrir menu"
-            aria-expanded="false"
-          >
-            <svg class="icon" aria-hidden="true">
-              <use href="#icon-menu"></use>
-            </svg>
-          </button>
+  <!-- COMO FUNCIONA -->
+  <section class="py-14 bg-surface border-y border-line">
+    <div class="container">
+      <div class="flex items-baseline justify-between gap-4 flex-wrap mb-7">
+        <div>
+          <h2>Como funciona</h2>
+          <p class="mt-1.5">Do problema à solução em três passos</p>
         </div>
       </div>
-    </header>
 
-    <main id="main">
-      <!-- HERO -->
-      <section class="hero">
-        <div class="container hero-grid">
-          <div class="hero-copy">
-            <span class="eyebrow">
-              <svg class="icon" aria-hidden="true">
-                <use href="#icon-check-decagram"></use>
-              </svg>
-              Mais de 3.400 profissionais avaliados
-            </span>
-            <h1>
-              Precisa resolver algo em casa? A gente te conecta com quem sabe
-              fazer.
-            </h1>
-            <p class="hero-subtitle">
-              Encanadores, eletricistas, diaristas e muito mais — perto de você,
-              com avaliações reais e pagamento seguro pelo app.
-            </p>
-
-            <form class="search-card" action="catalogo.html" method="get">
-              <div class="input-icon-group search-field">
-                <svg class="icon" aria-hidden="true">
-                  <use href="#icon-magnify"></use>
-                </svg>
-                <input
-                  class="form-control"
-                  type="text"
-                  name="q"
-                  placeholder="O que você precisa? Ex: eletricista, faxina..."
-                />
-              </div>
-              <div class="input-icon-group search-field">
-                <svg class="icon" aria-hidden="true">
-                  <use href="#icon-map-marker"></use>
-                </svg>
-                <input
-                  class="form-control"
-                  type="text"
-                  name="local"
-                  placeholder="Seu bairro ou cidade"
-                />
-              </div>
-              <button type="submit" class="btn btn-accent search-btn">
-                Buscar profissionais
-              </button>
-            </form>
-
-            <div class="hero-stats">
-              <div><strong>4.8</strong><span>avaliação média</span></div>
-              <div>
-                <strong>12 mil+</strong><span>chamados concluídos</span>
-              </div>
-              <div><strong>48</strong><span>cidades atendidas</span></div>
-            </div>
-          </div>
-
-          <div class="hero-art" aria-hidden="true">
-            <div class="hero-art-card card float-card float-card-top">
-              <svg class="icon icon-chip icon-chip-success" aria-hidden="true">
-                <use href="#icon-check-circle"></use>
-              </svg>
-              <div>
-                <strong>Serviço concluído</strong>
-                <p>Instalação elétrica — hoje às 14h</p>
-              </div>
-            </div>
-            <div class="hero-art-photo"></div>
-            <div class="hero-art-card card float-card float-card-bottom">
-              <div class="stars">
-                <svg class="icon" aria-hidden="true">
-                  <use href="#icon-star"></use>
-                </svg>
-                <svg class="icon" aria-hidden="true">
-                  <use href="#icon-star"></use>
-                </svg>
-                <svg class="icon" aria-hidden="true">
-                  <use href="#icon-star"></use>
-                </svg>
-                <svg class="icon" aria-hidden="true">
-                  <use href="#icon-star"></use>
-                </svg>
-                <svg class="icon" aria-hidden="true">
-                  <use href="#icon-star"></use>
-                </svg>
-              </div>
-              <p>"Rápido, educado e resolveu na hora."</p>
-            </div>
-          </div>
+      <div class="grid grid-cols-1 gap-8 xl:grid-cols-3 xl:gap-6">
+        <div class="px-1 py-2">
+          <span class="inline-flex items-center justify-center size-10 rounded-full bg-accent-light text-accent-dark font-heading font-bold mb-3.5">1</span>
+          <h3 class="mb-2">Busque e compare</h3>
+          <p>Filtre por preço, distância e avaliação para achar o profissional ideal.</p>
         </div>
-      </section>
-
-      <!-- CATEGORIAS -->
-      <section class="section">
-        <div class="container">
-          <div class="section-heading">
-            <div>
-              <h2>O que você precisa resolver hoje?</h2>
-              <p>Categorias mais buscadas na sua região</p>
-            </div>
-            <a href="catalogo.html" class="btn btn-outline btn-sm"
-              >Ver todas
-              <svg class="icon" aria-hidden="true">
-                <use href="#icon-arrow-right"></use>
-              </svg>
-            </a>
-          </div>
-
-          <div class="category-grid">
-            <a class="category-card" href="catalogo.html?categoria=eletricista">
-              <svg class="icon" aria-hidden="true">
-                <use href="#icon-lightning-bolt"></use>
-              </svg>
-              <span>Eletricista</span>
-            </a>
-            <a class="category-card" href="catalogo.html?categoria=encanador">
-              <svg class="icon" aria-hidden="true">
-                <use href="#icon-pipe-wrench"></use>
-              </svg>
-              <span>Encanador</span>
-            </a>
-            <a class="category-card" href="catalogo.html?categoria=diarista">
-              <svg class="icon" aria-hidden="true">
-                <use href="#icon-broom"></use>
-              </svg>
-              <span>Diarista</span>
-            </a>
-            <a class="category-card" href="catalogo.html?categoria=pintor">
-              <svg class="icon" aria-hidden="true">
-                <use href="#icon-format-paint"></use>
-              </svg>
-              <span>Pintor</span>
-            </a>
-            <a class="category-card" href="catalogo.html?categoria=jardinagem">
-              <svg class="icon" aria-hidden="true">
-                <use href="#icon-flower"></use>
-              </svg>
-              <span>Jardinagem</span>
-            </a>
-            <a class="category-card" href="catalogo.html?categoria=montador">
-              <svg class="icon" aria-hidden="true">
-                <use href="#icon-table-chair"></use>
-              </svg>
-              <span>Montador de móveis</span>
-            </a>
-          </div>
+        <div class="px-1 py-2">
+          <span class="inline-flex items-center justify-center size-10 rounded-full bg-accent-light text-accent-dark font-heading font-bold mb-3.5">2</span>
+          <h3 class="mb-2">Agende e pague com segurança</h3>
+          <p>Escolha o horário, descreva o problema e pague pelo app, sem surpresas.</p>
         </div>
-      </section>
-
-      <!-- COMO FUNCIONA -->
-      <section class="section how-it-works">
-        <div class="container">
-          <div class="section-heading">
-            <div>
-              <h2>Como funciona</h2>
-              <p>Do problema à solução em três passos</p>
-            </div>
-          </div>
-
-          <div class="steps-grid">
-            <div class="step-card">
-              <span class="step-number">1</span>
-              <h3>Busque e compare</h3>
-              <p>
-                Filtre por preço, distância e avaliação para achar o
-                profissional ideal.
-              </p>
-            </div>
-            <div class="step-card">
-              <span class="step-number">2</span>
-              <h3>Agende e pague com segurança</h3>
-              <p>
-                Escolha o horário, descreva o problema e pague pelo app, sem
-                surpresas.
-              </p>
-            </div>
-            <div class="step-card">
-              <span class="step-number">3</span>
-              <h3>Acompanhe e avalie</h3>
-              <p>
-                Veja o status do chamado em tempo real e avalie o serviço ao
-                final.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PROFISSIONAIS EM DESTAQUE -->
-      <section class="section">
-        <div class="container">
-          <div class="section-heading">
-            <div>
-              <h2>Profissionais bem avaliados perto de você</h2>
-              <p>Selecionados pela nota da comunidade</p>
-            </div>
-            <div class="carousel-controls" aria-hidden="true">
-              <button class="btn-icon" id="carouselPrev">
-                <svg class="icon" aria-hidden="true">
-                  <use href="#icon-chevron-left"></use>
-                </svg>
-              </button>
-              <button class="btn-icon" id="carouselNext">
-                <svg class="icon" aria-hidden="true">
-                  <use href="#icon-chevron-right"></use>
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <div class="carousel" id="carousel">
-            <article class="pro-card">
-              <div class="avatar avatar-lg avatar-c1">RM</div>
-              <h3>Rafael Mendes</h3>
-              <p class="text-muted">Eletricista</p>
-              <div class="rating-inline">
-                <svg
-                  class="icon"
-                  aria-hidden="true"
-                  style="color: var(--color-warning)"
-                >
-                  <use href="#icon-star"></use>
-                </svg>
-                4.9 <span class="text-muted">(212)</span>
-              </div>
-              <a href="perfil.html" class="btn btn-outline btn-sm btn-block"
-                >Ver perfil</a
-              >
-            </article>
-            <article class="pro-card">
-              <div class="avatar avatar-lg avatar-c2">CS</div>
-              <h3>Camila Santos</h3>
-              <p class="text-muted">Diarista</p>
-              <div class="rating-inline">
-                <svg
-                  class="icon"
-                  aria-hidden="true"
-                  style="color: var(--color-warning)"
-                >
-                  <use href="#icon-star"></use>
-                </svg>
-                5.0 <span class="text-muted">(340)</span>
-              </div>
-              <a href="perfil.html" class="btn btn-outline btn-sm btn-block"
-                >Ver perfil</a
-              >
-            </article>
-            <article class="pro-card">
-              <div class="avatar avatar-lg avatar-c3">JP</div>
-              <h3>João Pereira</h3>
-              <p class="text-muted">Encanador</p>
-              <div class="rating-inline">
-                <svg
-                  class="icon"
-                  aria-hidden="true"
-                  style="color: var(--color-warning)"
-                >
-                  <use href="#icon-star"></use>
-                </svg>
-                4.7 <span class="text-muted">(98)</span>
-              </div>
-              <a href="perfil.html" class="btn btn-outline btn-sm btn-block"
-                >Ver perfil</a
-              >
-            </article>
-            <article class="pro-card">
-              <div class="avatar avatar-lg avatar-c4">LA</div>
-              <h3>Luiza Almeida</h3>
-              <p class="text-muted">Pintora</p>
-              <div class="rating-inline">
-                <svg
-                  class="icon"
-                  aria-hidden="true"
-                  style="color: var(--color-warning)"
-                >
-                  <use href="#icon-star"></use>
-                </svg>
-                4.8 <span class="text-muted">(76)</span>
-              </div>
-              <a href="perfil.html" class="btn btn-outline btn-sm btn-block"
-                >Ver perfil</a
-              >
-            </article>
-            <article class="pro-card">
-              <div class="avatar avatar-lg avatar-c5">MT</div>
-              <h3>Marcos Teixeira</h3>
-              <p class="text-muted">Montador de móveis</p>
-              <div class="rating-inline">
-                <svg
-                  class="icon"
-                  aria-hidden="true"
-                  style="color: var(--color-warning)"
-                >
-                  <use href="#icon-star"></use>
-                </svg>
-                4.6 <span class="text-muted">(54)</span>
-              </div>
-              <a href="perfil.html" class="btn btn-outline btn-sm btn-block"
-                >Ver perfil</a
-              >
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- CTA PRESTADOR -->
-      <section class="section">
-        <div class="container">
-          <div class="cta-banner">
-            <div>
-              <h2>É prestador de serviços?</h2>
-              <p>
-                Cadastre-se gratuitamente, monte sua agenda e comece a receber
-                chamados perto de você.
-              </p>
-            </div>
-            <a href="prestador-painel.html" class="btn btn-primary">
-              Quero atender pelo ResolveAí
-              <svg class="icon" aria-hidden="true">
-                <use href="#icon-arrow-right"></use>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="container">
-        <div>
-          <a
-            href="index.html"
-            class="brand"
-            style="color: #fff; margin-bottom: 12px"
-          >
-            <svg class="icon brand-mark" aria-hidden="true">
-              <use href="#icon-hammer-wrench"></use>
-            </svg>
-            Resolve<span>Aí</span>
-          </a>
-          <p>
-            Conectando clientes a profissionais autônomos de confiança, perto de
-            você.
-          </p>
-        </div>
-        <div>
-          <h4>Para clientes</h4>
-          <ul>
-            <li><a href="catalogo.html">Buscar profissionais</a></li>
-            <li><a href="pedidos.html">Meus pedidos</a></li>
-            <li><a href="#">Como funciona</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Para prestadores</h4>
-          <ul>
-            <li><a href="prestador-painel.html">Painel do prestador</a></li>
-            <li><a href="#">Cadastrar serviços</a></li>
-            <li><a href="#">Central de ajuda</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>ResolveAí</h4>
-          <ul>
-            <li><a href="#">Sobre nós</a></li>
-            <li><a href="#">Termos de uso</a></li>
-            <li><a href="#">Privacidade</a></li>
-          </ul>
+        <div class="px-1 py-2">
+          <span class="inline-flex items-center justify-center size-10 rounded-full bg-accent-light text-accent-dark font-heading font-bold mb-3.5">3</span>
+          <h3 class="mb-2">Acompanhe e avalie</h3>
+          <p>Veja o status do chamado em tempo real e avalie o serviço ao final.</p>
         </div>
       </div>
-      <div class="footer-bottom">
-        <span
-          >© 2026 ResolveAí — projeto acadêmico (Desenvolvimento de Software
-          para Web 2, UFSCar)</span
-        >
-        <span>Marina Pena · Vinícius Cotrim</span>
-      </div>
-    </footer>
+    </div>
+  </section>
 
-    <script src="js/main.js"></script>
-  </body>
+  <!-- PROFISSIONAIS EM DESTAQUE -->
+  <section class="py-14">
+    <div class="container">
+      <div class="flex items-baseline justify-between gap-4 flex-wrap mb-7">
+        <div>
+          <h2>Profissionais bem avaliados perto de você</h2>
+          <p class="mt-1.5">Selecionados pela nota da comunidade</p>
+        </div>
+        <div class="flex gap-2" aria-hidden="true">
+          <button class="inline-block size-11 rounded-full bg-surface border border-line text-ink-secondary hover:bg-line" id="carouselPrev"><svg class="inline-block shrink-0 fill-current size-5 align-middle" aria-hidden="true"><use href="#icon-chevron-left"></use></svg></button>
+          <button class="inline-block size-11 rounded-full bg-surface border border-line text-ink-secondary hover:bg-line" id="carouselNext"><svg class="inline-block shrink-0 fill-current size-5 align-middle" aria-hidden="true"><use href="#icon-chevron-right"></use></svg></button>
+        </div>
+      </div>
+
+      <div class="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-2" id="carousel">
+        <article class="flex-[0_0_220px] snap-start bg-surface border border-line rounded-md shadow-sm px-[18px] py-6 flex flex-col items-center text-center gap-1.5">
+          <div class="inline-flex items-center justify-center rounded-full font-heading font-semibold text-white shrink-0 size-24 text-[1.8rem] avatar-c1">RM</div>
+          <h3 class="mt-1.5 text-[1rem]">Rafael Mendes</h3>
+          <p class="text-ink-muted">Eletricista</p>
+          <div class="inline-flex items-center gap-1.5 font-semibold text-[0.9rem]"><svg class="inline-block shrink-0 fill-current size-5 align-middle text-warning" aria-hidden="true"><use href="#icon-star"></use></svg> 4.9 <span class="text-ink-muted">(212)</span></div>
+          <a href="perfil.html" class="inline-flex items-center justify-center gap-2 font-heading font-semibold rounded-full whitespace-nowrap transition active:scale-[0.98] px-4 py-2 text-[0.85rem] bg-transparent text-primary border-[1.5px] border-primary hover:bg-primary-light w-full mt-3">Ver perfil</a>
+        </article>
+        <article class="flex-[0_0_220px] snap-start bg-surface border border-line rounded-md shadow-sm px-[18px] py-6 flex flex-col items-center text-center gap-1.5">
+          <div class="inline-flex items-center justify-center rounded-full font-heading font-semibold text-white shrink-0 size-24 text-[1.8rem] avatar-c2">CS</div>
+          <h3 class="mt-1.5 text-[1rem]">Camila Santos</h3>
+          <p class="text-ink-muted">Diarista</p>
+          <div class="inline-flex items-center gap-1.5 font-semibold text-[0.9rem]"><svg class="inline-block shrink-0 fill-current size-5 align-middle text-warning" aria-hidden="true"><use href="#icon-star"></use></svg> 5.0 <span class="text-ink-muted">(340)</span></div>
+          <a href="perfil.html" class="inline-flex items-center justify-center gap-2 font-heading font-semibold rounded-full whitespace-nowrap transition active:scale-[0.98] px-4 py-2 text-[0.85rem] bg-transparent text-primary border-[1.5px] border-primary hover:bg-primary-light w-full mt-3">Ver perfil</a>
+        </article>
+        <article class="flex-[0_0_220px] snap-start bg-surface border border-line rounded-md shadow-sm px-[18px] py-6 flex flex-col items-center text-center gap-1.5">
+          <div class="inline-flex items-center justify-center rounded-full font-heading font-semibold text-white shrink-0 size-24 text-[1.8rem] avatar-c3">JP</div>
+          <h3 class="mt-1.5 text-[1rem]">João Pereira</h3>
+          <p class="text-ink-muted">Encanador</p>
+          <div class="inline-flex items-center gap-1.5 font-semibold text-[0.9rem]"><svg class="inline-block shrink-0 fill-current size-5 align-middle text-warning" aria-hidden="true"><use href="#icon-star"></use></svg> 4.7 <span class="text-ink-muted">(98)</span></div>
+          <a href="perfil.html" class="inline-flex items-center justify-center gap-2 font-heading font-semibold rounded-full whitespace-nowrap transition active:scale-[0.98] px-4 py-2 text-[0.85rem] bg-transparent text-primary border-[1.5px] border-primary hover:bg-primary-light w-full mt-3">Ver perfil</a>
+        </article>
+        <article class="flex-[0_0_220px] snap-start bg-surface border border-line rounded-md shadow-sm px-[18px] py-6 flex flex-col items-center text-center gap-1.5">
+          <div class="inline-flex items-center justify-center rounded-full font-heading font-semibold text-white shrink-0 size-24 text-[1.8rem] avatar-c4">LA</div>
+          <h3 class="mt-1.5 text-[1rem]">Luiza Almeida</h3>
+          <p class="text-ink-muted">Pintora</p>
+          <div class="inline-flex items-center gap-1.5 font-semibold text-[0.9rem]"><svg class="inline-block shrink-0 fill-current size-5 align-middle text-warning" aria-hidden="true"><use href="#icon-star"></use></svg> 4.8 <span class="text-ink-muted">(76)</span></div>
+          <a href="perfil.html" class="inline-flex items-center justify-center gap-2 font-heading font-semibold rounded-full whitespace-nowrap transition active:scale-[0.98] px-4 py-2 text-[0.85rem] bg-transparent text-primary border-[1.5px] border-primary hover:bg-primary-light w-full mt-3">Ver perfil</a>
+        </article>
+        <article class="flex-[0_0_220px] snap-start bg-surface border border-line rounded-md shadow-sm px-[18px] py-6 flex flex-col items-center text-center gap-1.5">
+          <div class="inline-flex items-center justify-center rounded-full font-heading font-semibold text-white shrink-0 size-24 text-[1.8rem] avatar-c5">MT</div>
+          <h3 class="mt-1.5 text-[1rem]">Marcos Teixeira</h3>
+          <p class="text-ink-muted">Montador de móveis</p>
+          <div class="inline-flex items-center gap-1.5 font-semibold text-[0.9rem]"><svg class="inline-block shrink-0 fill-current size-5 align-middle text-warning" aria-hidden="true"><use href="#icon-star"></use></svg> 4.6 <span class="text-ink-muted">(54)</span></div>
+          <a href="perfil.html" class="inline-flex items-center justify-center gap-2 font-heading font-semibold rounded-full whitespace-nowrap transition active:scale-[0.98] px-4 py-2 text-[0.85rem] bg-transparent text-primary border-[1.5px] border-primary hover:bg-primary-light w-full mt-3">Ver perfil</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA PRESTADOR -->
+  <section class="py-14">
+    <div class="container">
+      <div class="bg-brand-deep text-white rounded-lg flex flex-col items-center text-center px-6 py-8 md:flex-row md:text-left md:p-10 justify-between gap-6 flex-wrap">
+        <div>
+          <h2 class="text-white mb-2">É prestador de serviços?</h2>
+          <p class="text-white/85 max-w-[42ch]">Cadastre-se gratuitamente, monte sua agenda e comece a receber chamados perto de você.</p>
+        </div>
+        <a href="prestador-painel.html" class="inline-flex items-center justify-center gap-2 font-heading font-semibold rounded-full whitespace-nowrap transition active:scale-[0.98] px-[22px] py-3 text-[0.95rem] bg-white text-primary-dark shadow-sm hover:bg-primary-soft hover:shadow-md shrink-0">
+          Quero atender pelo ResolveAí
+          <svg class="inline-block shrink-0 fill-current size-5 align-middle" aria-hidden="true"><use href="#icon-arrow-right"></use></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="bg-footer text-footer-text pt-12 pb-6 mt-16">
+  <div class="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-8">
+    <div>
+      <a href="index.html" class="flex items-center gap-2.5 font-heading font-bold text-[1.25rem] text-white mb-3">
+        <svg class="inline-block shrink-0 fill-current align-middle box-content inline-flex items-center justify-center size-5 p-[9px] rounded-md bg-brand text-white" aria-hidden="true"><use href="#icon-hammer-wrench"></use></svg>
+        Resolve<span class="text-accent">Aí</span>
+      </a>
+      <p class="text-footer-muted">Conectando clientes a profissionais autônomos de confiança, perto de você.</p>
+    </div>
+    <div>
+      <h4 class="text-white mb-3.5 text-[0.95rem]">Para clientes</h4>
+      <ul>
+        <li class="mb-2.5"><a href="catalogo.html" class="text-footer-text hover:text-white">Buscar profissionais</a></li>
+        <li class="mb-2.5"><a href="pedidos.html" class="text-footer-text hover:text-white">Meus pedidos</a></li>
+        <li class="mb-2.5"><a href="#" class="text-footer-text hover:text-white">Como funciona</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white mb-3.5 text-[0.95rem]">Para prestadores</h4>
+      <ul>
+        <li class="mb-2.5"><a href="prestador-painel.html" class="text-footer-text hover:text-white">Painel do prestador</a></li>
+        <li class="mb-2.5"><a href="#" class="text-footer-text hover:text-white">Cadastrar serviços</a></li>
+        <li class="mb-2.5"><a href="#" class="text-footer-text hover:text-white">Central de ajuda</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white mb-3.5 text-[0.95rem]">ResolveAí</h4>
+      <ul>
+        <li class="mb-2.5"><a href="#" class="text-footer-text hover:text-white">Sobre nós</a></li>
+        <li class="mb-2.5"><a href="#" class="text-footer-text hover:text-white">Termos de uso</a></li>
+        <li class="mb-2.5"><a href="#" class="text-footer-text hover:text-white">Privacidade</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="max-w-[1180px] mx-auto mt-8 px-5 pt-5 border-t border-footer-line text-footer-faint text-[0.85rem] flex justify-between flex-wrap gap-2">
+    <span>© 2026 ResolveAí — projeto acadêmico (Desenvolvimento de Software para Web 2, UFSCar)</span>
+    <span>Marina Pena · Vinícius Cotrim</span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
 </html>
