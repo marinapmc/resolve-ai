@@ -2,7 +2,7 @@
 
 Projeto da disciplina **Desenvolvimento de Software para Web 2** (DC — UFSCar, 02/2026).
 
-**Equipe:** Marina Pena · Vinícius Cotrim
+**Equipe:** Marina Pena 829844 · Vinícius Cotrim 828637
 
 ## Sobre
 
@@ -61,6 +61,3 @@ Todas as telas foram testadas em três larguras (375px, 768px, 1440px) sem overf
 - Sidebar de filtros do catálogo vira um painel deslizante (drawer) no mobile.
 - Grids de categorias, resultados e estatísticas se reorganizam por breakpoint.
 
-## Próxima fase (AA2)
-
-Nesta fase as telas são estáticas (mock-up de dados). Na AA2 será implementada a lógica em React, com acesso à rede (R5) e uso de uma API adicional — geolocalização, por exemplo, faz sentido dado o conceito de busca por profissionais próximos (R6).
