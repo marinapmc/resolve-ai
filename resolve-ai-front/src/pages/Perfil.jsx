@@ -1,6 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Perfil() {
+
+  const navigate = useNavigate();
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    // Sua lógica de envio...
+
+    navigate('/checkout');
+  }
+
   return (
     <main id="main">
       <div className="container pt-8 pb-16">
@@ -236,7 +247,7 @@ export default function Perfil() {
             <p className="text-ink-muted text-[0.85rem]">
               Escolha o melhor horário para você
             </p>
-            <form className="mt-[18px]" action="checkout.html" method="get">
+            <form className="mt-[18px]" onSubmit={handleSubmit} method="get">
               <div className="mb-5">
                 <label htmlFor="data" className="block font-semibold text-[0.9rem] mb-2 text-ink">
                   Data
