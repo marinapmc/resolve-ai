@@ -90,7 +90,7 @@ export default function Checkout() {
       }
     }
 
-    // Simula o processamento do pagamento (ainda não há back-end).
+    // TODO: conectar com o backend
     setProcessando(true);
     timer.current = setTimeout(() => {
       setPedido({

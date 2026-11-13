@@ -30,8 +30,7 @@ const alternar = (lista, item) =>
 export default function Catalogo() {
   const [params] = useSearchParams();
 
-  // ---------- ESTADO ----------
-  // Texto digitado (rascunho) x termo efetivamente buscado (muda só ao enviar o formulário).
+  // texto digitado (rascunho) x termo efetivamente buscado (muda só ao enviar o formulário).
   const [rascunho, setRascunho] = useState(params.get("q") ?? "");
   const [termo, setTermo] = useState(params.get("q") ?? "");
   const [local, setLocal] = useState("São Carlos, SP");
@@ -46,8 +45,7 @@ export default function Catalogo() {
   const [campoFocado, setCampoFocado] = useState(false);
   const [indiceAtivo, setIndiceAtivo] = useState(-1); // item destacado pelo teclado
 
-  // ---------- DADOS DERIVADOS ----------
-  // Não guardamos a lista filtrada em estado: ela é calculada a partir do estado acima.
+  // não guardamos a lista filtrada em estado: ela é calculada a partir do estado acima.
   // useMemo só evita recalcular quando nada relevante mudou.
   const resultados = useMemo(
     () => filtrarProfissionais(PROFISSIONAIS, termo, filtros, ordenacao),
@@ -62,7 +60,7 @@ export default function Catalogo() {
       ? `${PLURAL_CATEGORIA[filtros.categorias[0]]} em ${localBuscado}`
       : `Profissionais em ${localBuscado}`;
 
-  // ---------- AÇÕES ----------
+      
   const set = (campo, valor) => setFiltros((f) => ({ ...f, [campo]: valor }));
   const buscar = (e) => {
     e.preventDefault();
@@ -78,6 +76,7 @@ export default function Catalogo() {
   };
   const aoTeclar = (e) => {
     if (!listaAberta) return;
+
     if (e.key === "ArrowDown") {
       e.preventDefault();
       setIndiceAtivo((i) => (i + 1) % sugestoes.length);
@@ -91,6 +90,7 @@ export default function Catalogo() {
       setCampoFocado(false);
     }
   };
+
   const limpar = () => {
     setFiltros(FILTROS_INICIAIS);
     setRascunho("");
